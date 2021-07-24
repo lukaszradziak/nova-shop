@@ -29,6 +29,6 @@ class TestSeeder extends Seeder
         ]);
 
         $this->command->line('Creating Products');
-        Product::factory()->count(10)->create();
+        Product::factory()->count(50)->create();
     }
 }

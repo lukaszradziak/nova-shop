@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Product;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -25,7 +26,10 @@ class ProductFactory extends Factory
         return [
             'name' => trim($this->faker->sentence(2, false), '.'),
             'description' => $this->faker->paragraphs(2, true),
-            'photo' => $this->faker->imageUrl(480, 480, 'animals', true)
+            'photo' => function($attributes){ 
+                return "https://picsum.photos/seed/".Str::slug($attributes['name'])."/400/400";
+            },
+            'amount' => $this->faker->numberBetween(10, 999)
         ];
     }
 }
