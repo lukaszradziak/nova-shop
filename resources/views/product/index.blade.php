@@ -1,7 +1,5 @@
-<x-app-layout>
+<x-app-layout header="{{ __('Products') }}">
     <x-container>
-        <x-slider />
-
         <x-product-list :products="$products" />
     </x-container>
 </x-app-layout>
